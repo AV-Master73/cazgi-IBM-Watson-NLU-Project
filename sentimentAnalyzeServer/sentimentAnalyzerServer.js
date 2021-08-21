@@ -123,6 +123,6 @@ app.get("/text/sentiment", (req, res) => {
     return res.send(resp);
 });
 
-let server = app.listen(8090, () => {
+let server = app.listen(3000, () => {
     console.log('Listening', server.address().port)
 })
