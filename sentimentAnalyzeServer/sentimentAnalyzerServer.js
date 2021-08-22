@@ -80,7 +80,7 @@ app.get("/url/sentiment", (req, res) => {
 app.get("/text/emotion", (req, res) => {
     //let resp = req.query.text + 'init/text/emotion';
     const analyzeParams = {
-        'url': req.query.text,
+        'text': req.query.text,
         'features': {
             'entities': { 'emotion': true, 'limit': 1 },
             'keywords': { 'emotion': true, 'limit': 1 }
@@ -124,6 +124,6 @@ app.get("/text/sentiment", (req, res) => {
     //return res.send(resp);
 });
 
-let server = app.listen(8080, () => {
+let server = app.listen(3000, () => {
     console.log('Listening', server.address().port)
 })
