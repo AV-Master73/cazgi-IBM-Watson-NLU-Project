@@ -41,8 +41,8 @@ app.get("/url/emotion", (req, res) => {
     const analyzer = getNLUInstance();
     analyzer.analyze(analyzeParams)
         .then(analysisResults => {
-            //console.log(analysisResults);
-            console.log(JSON.stringify(analysisResults.result.entities[0].emotion, null, 2));
+            console.log(analysisResults);
+            //console.log(JSON.stringify(analysisResults.result.entities[0].emotion, null, 2));
             return res.send(analysisResults.result.keywords[0].emotion, null, 2);
             //return res.send(analysisResults);
         })
@@ -52,7 +52,6 @@ app.get("/url/emotion", (req, res) => {
 });
 
 app.get("/url/sentiment", (req, res) => {
-    //let resp = req.query.url + 'init/url/sentiment';
     const analyzeParams = {
         'url': req.query.url,
         'features': {
@@ -68,7 +67,6 @@ app.get("/url/sentiment", (req, res) => {
         .catch(err => {
             return res.send("Request error: " + err);
         });
-    //return res.send(resp);
 });
 
 app.get("/text/emotion", (req, res) => {
@@ -82,8 +80,8 @@ app.get("/text/emotion", (req, res) => {
     const analyzer = getNLUInstance();
     analyzer.analyze(analyzeParams)
         .then(analysisResults => {
-            //console.log(analysisResults);
-            console.log(JSON.stringify(analysisResults.result.entities[0].emotion, null, 2));
+            console.log(analysisResults);
+            //console.log(JSON.stringify(analysisResults.result.entities[0].emotion, null, 2));
             return res.send(analysisResults.result.keywords[0].emotion, null, 2);
             //return res.send(analysisResults);
         })
@@ -93,7 +91,6 @@ app.get("/text/emotion", (req, res) => {
 });
 
 app.get("/text/sentiment", (req, res) => {
-    //let resp = req.query.text + 'init/text/sentiment';
     const analyzeParams = {
         'text': req.query.text,
         'features': {
@@ -109,7 +106,6 @@ app.get("/text/sentiment", (req, res) => {
         .catch(err => {
             return res.send("Request error: " + err);
         });
-    //return res.send(resp);
 });
 
 let server = app.listen(3000, () => {
