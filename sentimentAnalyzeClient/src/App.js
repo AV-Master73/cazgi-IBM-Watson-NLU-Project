@@ -58,11 +58,11 @@ class App extends React.Component {
                 response.text().then((data) => {
                     this.setState({ sentimentOutput: data });
                     let output = data;
-                    if (data === "positive") {
+                    if (data.includes('positive')) {
                         output = < div style = {
                             { color: "green", fontSize: 20 }
                         } > { data } < /div>
-                    } else if (data === "negative") {
+                    } else if (data.includes('negative')) {
                         output = < div style = {
                             { color: "red", fontSize: 20 }
                         } > { data } < /div>
