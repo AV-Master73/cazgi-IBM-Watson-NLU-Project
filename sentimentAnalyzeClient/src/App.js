@@ -77,7 +77,6 @@ class App extends React.Component {
         }
 
         sendForEmotionAnalysis = () => {
-
                 this.setState({ sentiment: false });
                 let url = ".";
                 if (this.state.mode === "url") {
