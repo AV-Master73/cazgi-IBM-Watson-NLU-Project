@@ -31,7 +31,6 @@ function getNLUInstance() {
 }
 
 app.get("/url/emotion", (req, res) => {
-    //let resp = req.query.url + 'init/url/emotion';
     const analyzeParams = {
         'url': req.query.url,
         'features': {
@@ -42,15 +41,14 @@ app.get("/url/emotion", (req, res) => {
     const analyzer = getNLUInstance();
     analyzer.analyze(analyzeParams)
         .then(analysisResults => {
-            console.log(analysisResults);
-            //console.log(JSON.stringify(analysisResults.result.entities[0].emotion,null,2));
+            //console.log(analysisResults);
+            console.log(JSON.stringify(analysisResults.result.entities[0].emotion, null, 2));
             return res.send(analysisResults.result.keywords[0].emotion, null, 2);
             //return res.send(analysisResults);
         })
         .catch(err => {
             return res.send("Request error: " + err);
         });
-    //return res.send({ "happy": "73", "sad": "27", resp });
 });
 
 app.get("/url/sentiment", (req, res) => {
@@ -58,11 +56,7 @@ app.get("/url/sentiment", (req, res) => {
     const analyzeParams = {
         'url': req.query.url,
         'features': {
-            'sentiment': {
-                'targets': [
-                    'bonds'
-                ]
-            }
+            'sentiment': {}
         }
     };
     const analyzer = getNLUInstance();
@@ -78,7 +72,6 @@ app.get("/url/sentiment", (req, res) => {
 });
 
 app.get("/text/emotion", (req, res) => {
-    //let resp = req.query.text + 'init/text/emotion';
     const analyzeParams = {
         'text': req.query.text,
         'features': {
@@ -89,15 +82,14 @@ app.get("/text/emotion", (req, res) => {
     const analyzer = getNLUInstance();
     analyzer.analyze(analyzeParams)
         .then(analysisResults => {
-            console.log(analysisResults);
-            //console.log(JSON.stringify(analysisResults.result.entities[0].emotion,null,2));
+            //console.log(analysisResults);
+            console.log(JSON.stringify(analysisResults.result.entities[0].emotion, null, 2));
             return res.send(analysisResults.result.keywords[0].emotion, null, 2);
             //return res.send(analysisResults);
         })
         .catch(err => {
             return res.send("Request error: " + err);
         });
-    //return res.send({ "happy": "82", "sad": "18", resp });
 });
 
 app.get("/text/sentiment", (req, res) => {
@@ -105,11 +97,7 @@ app.get("/text/sentiment", (req, res) => {
     const analyzeParams = {
         'text': req.query.text,
         'features': {
-            'sentiment': {
-                'targets': [
-                    'bonds'
-                ]
-            }
+            'sentiment': {}
         }
     };
     const analyzer = getNLUInstance();
