@@ -62,7 +62,7 @@ app.get("/url/sentiment", (req, res) => {
     analyzer.analyze(analyzeParams)
         .then(analysisResults => {
             console.log(JSON.stringify(analysisResults, null, 2));
-            return res.send(analysisResults);
+            return res.send(analysisResults.result.sentiment);
         })
         .catch(err => {
             return res.send("Request error: " + err);
@@ -101,7 +101,7 @@ app.get("/text/sentiment", (req, res) => {
     analyzer.analyze(analyzeParams)
         .then(analysisResults => {
             console.log(JSON.stringify(analysisResults, null, 2));
-            return res.send(analysisResults);
+            return res.send(analysisResults.result.sentiment);
         })
         .catch(err => {
             return res.send("Request error: " + err);
