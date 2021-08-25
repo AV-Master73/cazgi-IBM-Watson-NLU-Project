@@ -1,7 +1,7 @@
 ---
 applications:
   - path: .
-    name: AV1973-sentiment-analyzer #change to be unique in IBM Cloud
+    name: sentiment-analyzer-AV #change to be unique in IBM Cloud
     buildpack: sdk-for-nodejs
     memory: 256M
     instances: 1
